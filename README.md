@@ -1,13 +1,39 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Laravel Model factories
+Registros de la base de datos de forma predecible y fácilmente replicable, para que las pruebas de tu aplicación sean coherentes y estén controladas.
+
+## Formas de almacenar con LARAVEL
+
+// Post::create([
+//     'title' => $request->title,
+//     'description' => $request->description,
+//     'image' => $request->image,
+//     'user_id' => auth()->user()->id
+// ]);
+
+//OTRA FORMA DE HACER LO ANTERIOR
+$post = new Post;
+$post->title = $request->title;
+$post->description = $request->description;
+$post->image = $request->image;
+$post->user_id = auth()->user()->id;
+$post->save();
+
+// UNA TERCERA FORMA
+<!-- $request->user()->posts()->create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $request->image,
+            'user_id' => auth()->user()->id
+        ]); -->
+
 
 ## About Laravel
+
+Laravel Framework 10.24.0
+
+PHP 8.2.10 (cli) (built: Sep  2 2023 06:59:22) (NTS) - Copyright (c) The PHP Group
+Zend Engine v4.2.10, Copyright (c) Zend Technologies - with Zend OPcache v8.2.10, Copyright (c), by Zend Technologies - with Xdebug v3.2.1, Copyright (c) 2002-2023, by Derick Rethans
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -28,26 +54,6 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
 ## Contributing
 

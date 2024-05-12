@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
     ];
 
     /**
@@ -42,4 +43,30 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+
+    public function likes() {
+        return $this->hasMany(Like::class);
+    }
+
+    //Almacena los seguidores de un usuario
+    public function followers() {
+        //Va insertar en la tabla FOLLOWERS, user_id es el ID del usuario que estamos visitando, follower_id es el ID del usuario que le da al boton seguir
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    }
+
+    //Almacenar los usuarios que seguimos
+    public function followings() {
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    }
+
+    //Comprobar si un usuario ya sigue a otro usuario
+    public function following(User $user) {
+        return $this->followers->contains( $user->id );
+    }
+
+
 }
